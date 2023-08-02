@@ -10,11 +10,11 @@
             {% csrf_token %}
             <div class="mb-4">
                 <label for="{{ form.username.id_for_label }}" class="block text-sm font-medium text-gray-700 mb-1">Username</label>
-                {{ form.username }}
+                <input type="text" id="{{ form.username.id_for_label }}" name="{{ form.username.name }}" class="border rounded w-full p-2">
             </div>
             <div class="mb-4">
                 <label for="{{ form.password.id_for_label }}" class="block text-sm font-medium text-gray-700 mb-1">Password</label>
-                {{ form.password }}
+                <input type="password" id="{{ form.password.id_for_label }}" name="{{ form.password.name }}" class="border rounded w-full p-2">
             </div>
             <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded w-full hover:bg-blue-600">
                 Masuk

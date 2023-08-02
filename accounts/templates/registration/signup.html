@@ -21,6 +21,7 @@
             <div class="mb-4">
                 <label for="{{ form.password1.id_for_label }}" class="block text-sm font-medium text-gray-700 mb-1">Password</label>
                 {{ form.password1 }}
+                <!-- Perubahan: Gaya CSS diperbarui untuk pesan kriteria password -->
                 <p class="text-gray-600 text-sm mt-1">
                     Pastikan password Anda kuat dengan kriteria berikut:
                 </p>
@@ -35,9 +36,9 @@
                 <label for="{{ form.password2.id_for_label }}" class="block text-sm font-medium text-gray-700 mb-1">Konfirmasi Password</label>
                 {{ form.password2 }}
             </div>
-            <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded w-full hover:bg-blue-600">
+            <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded w-full hover:bg-blue-600 transition-colors duration-300">
                 Daftar
-            </button>
+            </button> 
             {% if form.non_field_errors %}
             <div class="mt-4 text-red-500">
                 {% for error in form.non_field_errors %}

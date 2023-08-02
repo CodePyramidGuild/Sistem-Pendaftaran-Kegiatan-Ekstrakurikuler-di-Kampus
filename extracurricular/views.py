@@ -32,7 +32,7 @@ def registration_view(request):
         form = FormKegiatan(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('halaman_utama')   
+            return redirect('registration_success')   
     else:
         form = FormKegiatan()
 
