@@ -1,0 +1,15 @@
+{% extends 'extracurricular/base.html' %}
+
+{% block title %}Dashboard{% endblock %}
+
+{% block content %}
+<div class="flex justify-center items-center min-h-screen bg-gray-100">
+    <div class="bg-white p-8 rounded shadow-md max-w-md w-full">
+        <h2 class="text-2xl font-semibold mb-6 text-center">Dashboard</h2>
+        <p class="mb-4 text-gray-600">Selamat datang di dashboard Anda!</p>
+        <a href="{% url 'extracurricular:registration_form' %}" class="bg-blue-500 text-white px-4 py-2 rounded w-full block text-center hover:bg-blue-600">
+            Registrasi Ekstrakulikuler
+        </a>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,21 @@
+{% extends 'extracurricular/base.html' %}
+
+{% block title %}Selamat Datang di Extracurricular!{% endblock %}
+
+{% block content %}
+    <div class="container mx-auto px-4 py-8">
+        <h1 class="text-3xl font-bold mb-4">Selamat Datang di Extracurricular!</h1>
+        <p class="text-lg mb-6">Temukan berbagai kegiatan ekstrakurikuler menarik dan ikuti untuk mengembangkan potensi diri.</p>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            {% for kegiatan in kegiatan_list %}
+                <div class="bg-white p-4 rounded shadow-md">
+                    <h2 class="text-xl font-bold mb-2">{{ kegiatan.nama }}</h2>
+                    <p class="text-gray-600">{{ kegiatan.deskripsi }}</p>
+                    <p class="mt-2"><strong>Pengajar:</strong> {{ kegiatan.pengajar }}</p>
+                    <p><strong>Tanggal:</strong> {{ kegiatan.tanggal }}</p>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

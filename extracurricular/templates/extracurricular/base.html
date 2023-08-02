@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>{% block title %}Aplikasi Ekstrakurikuler{% endblock %}</title> 
+        <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.16/dist/tailwind.min.css" rel="stylesheet">
+    </head>
+<body class="bg-gray-100"> 
+    <nav class="bg-blue-500 p-4 text-white">
+        <div class="container mx-auto flex justify-between">
+            <a href="{% url 'extracurricular:home' %}" class="text-xl font-bold">Ekstrakurikuler</a>
+            {% if user.is_authenticated %}
+                <a href="{% url 'extracurricular:halaman_utama' %}" class="ml-4">Dashboard</a>
+                <a href="{% url 'extracurricular:manage_activities' %}" class="ml-4">Kelola Kegiatan</a>
+                <a href="{% url 'logout' %}" class="ml-4">Keluar</a>
+            {% else %}
+                <a href="{% url 'login' %}" class="ml-4">Masuk</a>
+                <a href="{% url 'signup' %}" class="ml-4">Daftar</a>
+            {% endif %}
+        </div>
+    </nav>
+ 
+    <div class="container mx-auto py-8">
+        {% block content %}
+        {% endblock %}
+    </div>
+ 
+    <footer class="bg-blue-500 text-white py-4 text-center">
+        <div class="container mx-auto">
+            <p>&copy; {% now "Y" %} Aplikasi Ekstrakurikuler. Dikembangkan oleh kandang ulo.</p>
+        </div>
+    </footer>
+</body>
+</html>

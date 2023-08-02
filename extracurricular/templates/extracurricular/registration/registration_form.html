@@ -1,0 +1,49 @@
+{% extends 'extracurricular/base.html' %}
+{% block title %}Formulir Pendaftaran{% endblock %}
+
+{% block content %}
+<div class="container mx-auto">
+    <h2 class="text-2xl font-bold mb-4">Formulir Pendaftaran Kegiatan</h2>
+    <form id="registration-form" method="post">
+        {% csrf_token %}
+        <div class="mb-4">
+            <label for="{{ form.nama.id_for_label }}">Nama Kegiatan:</label>
+            {{ form.nama }}
+        </div>
+        <div class="mb-4">
+            <label for="{{ form.deskripsi.id_for_label }}">Deskripsi Kegiatan:</label>
+            {{ form.deskripsi }}
+        </div>
+
+        <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">
+            Daftar
+        </button>
+    </form>
+</div>
+{% endblock %}
+
+{% block scripts %}
+{{ block.super }}
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const registrationForm = document.getElementById("registration-form");
+
+        registrationForm.addEventListener("submit", function(event) {
+            event.preventDefault(); 
+            fetch("{% url 'extracurricular:registration_view' %}", {
+                method: 'POST',
+                body: new FormData(registrationForm)
+            })
+            .then(response => {
+                if (response.ok) { 
+                    window.location.href = "{% url 'extracurricular:halaman_utama' %}";
+                } else { 
+                }
+            })
+            .catch(error => { 
+            });
+        });
+    });
+</script>
+
+{% endblock %}

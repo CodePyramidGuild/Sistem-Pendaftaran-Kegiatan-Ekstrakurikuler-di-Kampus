@@ -1,0 +1,23 @@
+{% extends 'extracurricular/base.html' %}
+
+{% block title %}Manage Activities{% endblock %}
+
+{% block content %}
+<div class="flex justify-center items-center min-h-screen bg-gray-100">
+    <div class="bg-white p-8 rounded shadow-md max-w-md w-full">
+        <h2 class="text-2xl font-semibold mb-6 text-center">Manage Activities</h2>
+        <ul class="space-y-2">
+            {% for kegiatan in kegiatan %}
+                <li class="border p-3 rounded-lg">
+                    <strong>{{ kegiatan.nama }}</strong>
+                    <p>{{ kegiatan.deskripsi }}</p>
+                    <a href="{% url 'extracurricular:edit_activity' kegiatan.pk %}" class="text-blue-500 hover:underline">Edit</a>
+                    <a href="{% url 'extracurricular:delete_activity' kegiatan.pk %}" class="text-red-500 hover:underline">Delete</a>
+                </li>
+            {% empty %}
+                <li class="border p-3 rounded-lg">No activities available.</li>
+            {% endfor %}
+        </ul>
+    </div>
+</div>
+{% endblock %}
